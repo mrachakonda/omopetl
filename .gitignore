@@ -1,15 +1,17 @@
-# PhysioNet MIMIC-IV. Do not commit or push.
-hosp/
-**/hosp/
+# Keep the layout folders; never commit PhysioNet, Athena, or derived OMOP CSVs.
+hosp/*
+!hosp/README.md
+vocabulary/*
+!vocabulary/README.md
+omop/*
+!omop/README.md
+
 patients.csv
 admissions.csv
 diagnoses_icd.csv
 procedures_icd.csv
+*.csv
 *.csv.gz
-
-# OHDSI Athena vocabularies. Licensed; do not redistribute.
-vocabulary/
-**/vocabulary/
 vocabulary_download*.zip
 CONCEPT.csv
 CONCEPT_ANCESTOR.csv
@@ -23,11 +25,6 @@ DRUG_STRENGTH.csv
 PACK_CONTENT.csv
 RELATIONSHIP.csv
 VOCABULARY.csv
-
-# OMOP tables derived from MIMIC. Same redistribution ban.
-omop/
-**/omop/
-*.csv
 
 # Python
 __pycache__/

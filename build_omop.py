@@ -14,9 +14,28 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 DATA_ROOT = ROOT.parent
-HOSP = DATA_ROOT / "hosp"
-VOCAB = DATA_ROOT / "vocabulary"
-OUT = DATA_ROOT / "omop"
+
+
+def _data_dir(name: str) -> Path:
+    """Prefer a local placeholder folder; fall back to KeepETL's sibling data."""
+    local = ROOT / name
+    parent = DATA_ROOT / name
+    marker = {
+        "hosp": "patients.csv",
+        "vocabulary": "CONCEPT.csv",
+    }.get(name)
+    if marker is None:
+        return local
+    if (local / marker).exists() or (local / f"{marker}.gz").exists():
+        return local
+    if (parent / marker).exists() or (parent / f"{marker}.gz").exists():
+        return parent
+    return local
+
+
+HOSP = _data_dir("hosp")
+VOCAB = _data_dir("vocabulary")
+OUT = ROOT / "omop"
 
 GENDER_MALE = 8507
 GENDER_FEMALE = 8532
