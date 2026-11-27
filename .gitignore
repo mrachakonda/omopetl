@@ -1,0 +1,47 @@
+# PhysioNet MIMIC-IV. Do not commit or push.
+hosp/
+**/hosp/
+patients.csv
+admissions.csv
+diagnoses_icd.csv
+procedures_icd.csv
+*.csv.gz
+
+# OHDSI Athena vocabularies. Licensed; do not redistribute.
+vocabulary/
+**/vocabulary/
+vocabulary_download*.zip
+CONCEPT.csv
+CONCEPT_ANCESTOR.csv
+CONCEPT_CLASS.csv
+CONCEPT_METADATA.csv
+CONCEPT_RELATIONSHIP.csv
+CONCEPT_RELATIONSHIP_METADATA.csv
+CONCEPT_SYNONYM.csv
+DOMAIN.csv
+DRUG_STRENGTH.csv
+PACK_CONTENT.csv
+RELATIONSHIP.csv
+VOCABULARY.csv
+
+# OMOP tables derived from MIMIC. Same redistribution ban.
+omop/
+**/omop/
+*.csv
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+.env
+.env.*
+
+# Local caches and OS
+.pyhealth_cache/
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+Thumbs.db
